@@ -5,6 +5,7 @@ kotlin = "2.0.21"
 # Spring
 spring-boot = "3.5.6"
 spring-dependency-management = "1.1.7"
+spring-doc = "2.8.13"
 
 # Security & JWT
 jjwt = "0.12.6"
@@ -20,7 +21,7 @@ jjwt-impl = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jjwt" }
 jjwt-jackson = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
 
 # Database
-mysql = { module = "mysql:mysql-connector-java" }
+mysql = { module = "com.mysql:mysql-connector-j" }
 h2 = { module = "com.h2database:h2" }
 
 # Spring Boot Starters
@@ -29,6 +30,8 @@ spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-
 spring-boot-starter-oauth2-client = { module = "org.springframework.boot:spring-boot-starter-oauth2-client" }
 spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-starter-devtools = { module = "org.springframework.boot:spring-boot-devtools"}
+spring-boot-openapi-starter-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "spring-doc" }
 
 # Lombok
 lombok = { module = "org.projectlombok:lombok"}

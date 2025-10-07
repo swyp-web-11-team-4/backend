@@ -25,13 +25,26 @@ repositories {
 }
 
 dependencies {
+    // Spring Boot Starter
     implementation libs.spring.boot.starter.web
     implementation libs.spring.boot.starter.data.jpa
+    implementation libs.spring.boot.openapi.starter.webmvc.ui
 
-    implementation libs.lombok
+    // Lombok
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
 
-    testRuntimeOnly libs.h2
+    // Development
+    developmentOnly libs.spring.boot.starter.devtools
+
+    // Database
+    runtimeOnly libs.mysql
+
+    // Test
     testImplementation libs.spring.boot.starter.test
+    testRuntimeOnly libs.h2
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
 }
 
 tasks.named('test') {
@@ -41,7 +54,7 @@ tasks.named('test') {
 
 tasks.named("check") {
     dependsOn(tasks.named("jacocoTestCoverageVerification"))
-    dependsOn(tasks.named("checkFormat"))
+    dependsOn(tasks.named("spotlessCheck"))
 
     doLast {
         print("커버리지 및 포맷팅 검사가 완료되었습니다:)")
