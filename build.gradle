@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'plugin.coverage'
-    id 'plugin.sonar'
     id 'plugin.spotless'
 
     alias(libs.plugins.kotlin)
@@ -42,6 +41,9 @@ tasks.named('test') {
 
 tasks.named("check") {
     dependsOn(tasks.named("jacocoTestCoverageVerification"))
-    dependsOn(tasks.named("sonarqube"))
     dependsOn(tasks.named("checkFormat"))
+
+    doLast {
+        print("커버리지 및 포맷팅 검사가 완료되었습니다:)")
+    }
 }

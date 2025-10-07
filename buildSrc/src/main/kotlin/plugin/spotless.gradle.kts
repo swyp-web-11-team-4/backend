@@ -77,18 +77,3 @@ spotless {
         eclipseWtp(EclipseWtpFormatterStep.XML)
     }
 }
-
-// 커스텀 태스크
-tasks.register("doFormat") {
-    description = "모든 소스 코드를 Spotless 규칙에 따라 포맷팅합니다"
-    dependsOn(tasks.spotlessApply)
-
-    doLast { println("코드 포맷팅이 완료되었습니다!") }
-}
-
-tasks.register("checkFormat") {
-    description = "코드 포맷팅 규칙 준수 여부를 검사합니다"
-    dependsOn(tasks.spotlessCheck)
-
-    doLast { println("코드 포맷팅 검사가 완료되었습니다!") }
-}

@@ -4,6 +4,8 @@ plugins { id("org.sonarqube") }
 
 sonar {
     properties {
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.organization", "swyp-web-11-team-4")
         property("sonar.projectKey", project.name)
         property("sonar.projectName", project.name)
         property("sonar.projectVersion", project.version.toString())
@@ -46,6 +48,7 @@ sonar {
         property("sonar.qualitygate.wait", "false")
 
         // 언어 설정
+        property("sonar.language", "java")
         property("sonar.java.source", "17")
 
         // 인코딩 설정
