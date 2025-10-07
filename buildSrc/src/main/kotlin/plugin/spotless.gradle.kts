@@ -49,7 +49,7 @@ spotless {
         target("src/**/*.json")
         targetExclude("build/**")
 
-        gson().indentWithSpaces(2)
+        gson().indentWithSpaces(4)
     }
 
     // YAML 파일 포맷팅
