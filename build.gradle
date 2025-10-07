@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'plugin.coverage'
+    id 'plugin.sonar'
+    id 'plugin.spotless'
+
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+}
+
+allprojects {
+    group = 'com.swygbro'
+    version = '0.0.1-SNAPSHOT'
+    description = 'trip'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.spring.boot.starter.web
+    implementation libs.spring.boot.starter.data.jpa
+
+    implementation libs.lombok
+
+    testRuntimeOnly libs.h2
+    testImplementation libs.spring.boot.starter.test
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    finalizedBy 'jacocoTestReport'
+}
+
+tasks.named("check") {
+    dependsOn(tasks.named("jacocoTestCoverageVerification"))
+    dependsOn(tasks.named("sonarqube"))
+    dependsOn(tasks.named("checkFormat"))
+}
