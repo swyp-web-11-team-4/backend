@@ -6,6 +6,5 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.sonarqube.plugin)
     implementation(libs.spotless.plugin)
 }
