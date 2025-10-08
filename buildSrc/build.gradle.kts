@@ -5,4 +5,7 @@ repositories {
     gradlePluginPortal()
 }
 
-dependencies { implementation(libs.spotless.plugin) }
+dependencies {
+    implementation(libs.sonarqube.plugin)
+    implementation(libs.spotless.plugin)
+}

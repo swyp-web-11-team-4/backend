@@ -120,8 +120,8 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar-
 
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v6
+      - name: SonarQube Scan With Gradle
+        run: ./gradlew sonar --info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
