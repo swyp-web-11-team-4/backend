@@ -47,7 +47,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          ./gradlew test koverXmlReport \
+          ./gradlew test jacocoTestReport \
             --parallel \
             --build-cache \
             --continue \
@@ -63,8 +63,7 @@ jobs:
           path: |
             **/build/reports/tests/
             **/build/test-results/
-            build/reports/kover/
-            **/build/reports/kover/
+            build/reports/jacoco/
           retention-days: 3
 
       - name: Comment PR with test results
