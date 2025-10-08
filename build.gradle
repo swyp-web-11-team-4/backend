@@ -10,7 +10,6 @@ plugins {
 
 allprojects {
     group = 'com.swygbro'
-    version = '0.0.1-SNAPSHOT'
     description = 'trip'
 }
 
