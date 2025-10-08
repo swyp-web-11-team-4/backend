@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Gradle 설정 파일 복사
 COPY build.gradle settings.gradle gradle.properties ./
+COPY buildSrc ./buildSrc
 COPY gradle ./gradle
 COPY gradlew ./
 
