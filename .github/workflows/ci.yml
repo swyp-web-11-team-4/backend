@@ -47,7 +47,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          ./gradlew test jacocoTestReport \
+          ./gradlew test check \
             --parallel \
             --build-cache \
             --continue \
