@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'plugin.coverage'
     id 'plugin.spotless'
+    id 'plugin.sonar'
 
     alias(libs.plugins.kotlin)
     alias(libs.plugins.spring.boot)
@@ -10,7 +11,6 @@ plugins {
 
 allprojects {
     group = 'com.swygbro'
-    version = '0.0.1-SNAPSHOT'
     description = 'trip'
 }
 

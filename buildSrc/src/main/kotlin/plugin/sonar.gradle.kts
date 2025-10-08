@@ -6,14 +6,14 @@ sonar {
     properties {
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.organization", "swyp-web-11-team-4")
-        property("sonar.projectKey", project.name)
-        property("sonar.projectName", project.name)
-        property("sonar.projectVersion", project.version.toString())
+        property("sonar.projectKey", "swyp-web-11-team-4_backend")
+        property("sonar.token", System.getenv("SONAR_TOKEN"))
+        property("sonar.projectVersion", version)
 
         // 소스 및 바이너리 경로 설정
         property("sonar.sources", "src/main")
         property("sonar.tests", "src/test")
-        property("sonar.java.binaries", "build/classes")
+        property("sonar.java.binaries", "build/classes/java/main")
         property("sonar.java.test.binaries", "build/classes/java/test")
 
         // JaCoCo 커버리지 리포트 연동
