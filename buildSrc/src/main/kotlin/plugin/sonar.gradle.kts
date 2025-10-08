@@ -6,9 +6,7 @@ sonar {
     properties {
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.organization", "swyp-web-11-team-4")
-        property("sonar.projectKey", project.name)
-        property("sonar.projectName", project.name)
-        property("sonar.projectVersion", project.version.toString())
+        property("sonar.projectKey", "swyp-web-11-team-4_backend")
 
         // 소스 및 바이너리 경로 설정
         property("sonar.sources", "src/main")
