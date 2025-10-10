@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/swyp-web-11-team-4/backend/compare/v1.0.1...v1.0.2) (2025-10-10)
+
+
+### Bug Fixes
+
+* Dockerfile 빌드 실패 관련 오류 수정 ([2fdd309](https://github.com/swyp-web-11-team-4/backend/commit/2fdd3091b9df60ab760b8403f345d11528816885))
+
 ## [1.0.1](https://github.com/swyp-web-11-team-4/backend/compare/v1.0.0...v1.0.1) (2025-10-10)
 
 
