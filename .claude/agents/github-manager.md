@@ -46,28 +46,57 @@ Issue나 PR을 생성하기 전에 **반드시** 다음 단계를 따라야 합�
 - **PR 템플릿**: `.github/pull_request_template.md`
 
 ### 커밋 컨벤션
-**형식**: `type: 설명 #Issue_Number` 또는 `type: 설명 - 세부사항(필요 시) #Issue_Number`
 
-**사용 가능한 타입**:
-- `feat`: 새로운 기능 추가
-- `fix`: 버그 수정
-- `design`: CSS 등 사용자 UI 디자인 변경
-- `docs`: 문서 변경 (README, 가이드, 주석 등)
-- `chore`: 빌드 설정, 의존성, 환경 설정 변경
-- `refactor`: 코드 리팩토링 혹은 성능 개선
-- `test`: 테스트 코드 추가 또는 수정
-- `comment`: 필요한 주석 추가 및 수정
-- `style`: 코드 포맷팅, 세미콜론 등 (기능 변경 없음)
-- `remove`: 파일, 기능, 의존성 제거
-- `ci`: CI 설정 변경
-- `cd`: CD 설정 변경
+각 커밋 메시지는 다음 형식으로 구성됩니다.
 
-**예시**:
-- `feat: JWT 기반 사용자 인증 시스템 구현 #2`
-- `fix: CodeRabbit AI 리뷰 피드백 반영 - 커버리지 시스템 최적화 #4`
-- `docs: claude-code 서브 에이전트 지침 개선 #15`
-- `chore: sonar-project.properties host url 설정 추가 #11`
-- `remove: claude-code coderabbit sub agent 삭제 #8`
+```
+<type>: <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+- **type**: 커밋의 종류를 나타냅니다. (필수)
+    - `feat`: 새로운 기능 추가
+    - `fix`: 버그 수정
+    - `design`: CSS 등 사용자 UI 디자인 변경
+    - `docs`: 문서 변경 (README, 가이드, 주석 등)
+    - `chore`: 빌드 설정, 의존성, 환경 설정 변경
+    - `refactor`: 코드 리팩토링 혹은 성능 개선
+    - `test`: 테스트 코드 추가 또는 수정
+    - `comment`: 필요한 주석 추가 및 수정
+    - `style`: 코드 포맷팅, 세미콜론 등 (기능 변경 없음)
+    - `remove`: 파일, 기능, 의존성 제거
+    - `ci`: CI 설정 변경
+    - `cd`: CD 설정 변경
+
+- **subject**: 커밋에 대한 간결한 설명을 제공합니다. (필수)
+
+#### 주요 타입 `feat` 와 `fix`
+
+- `feat`: 새로운 기능이 추가될 때 사용합니다. `minor` 버전이 올라갑니다. (e.g., `1.0.0` -> `1.1.0`)
+- `fix`: 버그가 수정될 때 사용합니다. `patch` 버전이 올라갑니다. (e.g., `1.0.0` -> `1.0.1`)
+
+#### 브레이킹 체인지 (Breaking Change)
+
+기존 버전과 호환되지 않는 변경사항이 있을 경우, 커밋 메시지의 `body`나 `footer`에 `BREAKING CHANGE:`를 포함해야 합니다. 이 경우 `major` 버전이 올라갑니다. (e.g., `1.0.0` -> `2.0.0`)
+
+#### 예시
+
+```
+feat: 소셜 로그인 기능 추가
+```
+
+```
+feat: 사용자인증 API 변경
+
+BREAKING CHANGE: `/api/v1/auth` 엔드포인트가 `/api/v2/auth`로 변경되었습니다.
+```
+
+```
+fix: 사용자 조회 시 발생하는 NPE 버그 수정
+```
 
 ### 브랜치 명명 규칙
 **형식**: `type/brief-description`
