@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/swyp-web-11-team-4/backend/compare/v1.0.2...v1.0.3) (2025-10-10)
+
+
+### Bug Fixes
+
+* Dockerfile spotless task 제외 추가 ([d3d0534](https://github.com/swyp-web-11-team-4/backend/commit/d3d05348bbaa90e56ee15dd480d36110203b0f78))
+
 ## [1.0.2](https://github.com/swyp-web-11-team-4/backend/compare/v1.0.1...v1.0.2) (2025-10-10)
 
 
