@@ -24,7 +24,7 @@ RUN ./gradlew dependencies --no-daemon --quiet
 COPY src ./src
 
 # 애플리케이션 빌드
-RUN ./gradlew build -x test --no-daemon --parallel
+RUN ./gradlew build -x test -x spotlessCheck --no-daemon --parallel
 
 # Stage 2: 런타임 스테이지
 FROM eclipse-temurin:17-jre-jammy
