@@ -10,11 +10,15 @@ COPY buildSrc ./buildSrc
 COPY gradle ./gradle
 COPY gradlew ./
 
+# 코드 스타일 파일 복사
+COPY code-style ./code-style
+
 # 실행 권한 부여
 RUN chmod +x gradlew
 
 # 의존성 다운로드
 RUN ./gradlew dependencies --no-daemon --quiet
+
 
 # 소스 코드 복사
 COPY src ./src

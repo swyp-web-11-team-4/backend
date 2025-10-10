@@ -28,6 +28,8 @@ fun JacocoReportBase.configureClassDirectories() {
 jacoco { reportsDirectory = layout.buildDirectory.dir("reports/jacoco") }
 
 tasks.named<JacocoReport>("jacocoTestReport") {
+    dependsOn(tasks.named("test"))
+
     reports {
         xml.required = true
         html.required = true
@@ -40,6 +42,8 @@ tasks.named<JacocoReport>("jacocoTestReport") {
 }
 
 tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
+    dependsOn(tasks.named("jacocoTestReport"))
+
     violationRules {
         // 프로젝트 전체 커버리지 검증
         rule {
