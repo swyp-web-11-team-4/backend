@@ -18,10 +18,34 @@ permissions:
   issues: write
 
 jobs:
+  changes:
+    name: Detect Changes
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      source: ${{ steps.changes.outputs.source }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            source:
+              - 'src/**'
+              - 'build.gradle'
+              - 'settings.gradle'
+              - 'buildSrc/**'
+              - 'gradle/**'
+              - 'docker/Dockerfile'
+              - '.github/workflows/**'
+
   test:
     name: Test & Build
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    needs: changes
+    if: needs.changes.outputs.source == 'true'
 
     steps:
       - name: Checkout repository
@@ -91,8 +115,8 @@ jobs:
     name: SonarQube Analysis
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs: test
-    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    needs: [changes, test]
+    if: needs.changes.outputs.source == 'true' && (github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main'))
 
     steps:
       - name: Checkout repository
