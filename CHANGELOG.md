@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/swyp-web-11-team-4/backend/compare/v1.0.3...v1.0.4) (2025-10-11)
+
+
+### Bug Fixes
+
+* 테스트 코드 리팩토링 및 구조 개선 ([a13da81](https://github.com/swyp-web-11-team-4/backend/commit/a13da815efb4b7d9aadff3c0bd4ea27571f4f529))
+
 ## [1.0.3](https://github.com/swyp-web-11-team-4/backend/compare/v1.0.2...v1.0.3) (2025-10-10)
 
 
