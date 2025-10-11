@@ -6,8 +6,8 @@ import com.swygbro.trip.example.domain.dto.ExampleResponse;
 
 @Service
 public class ExampleService implements ExampleUseCase {
-    @Override
-    public ExampleResponse getHelloMessage() {
-        return new ExampleResponse("Hello, World!");
-    }
+  @Override
+  public ExampleResponse getHelloMessage() {
+    return new ExampleResponse("Hello, World!");
+  }
 }

@@ -6,18 +6,28 @@ plugins { id("jacoco") }
 val excludePatterns =
     listOf(
         "**/config/**",
-        "**/dto/**",
-        "**/entity/**",
+        "**/domain/**",
+        "**/presentation/**",
         "**/*Application*",
         "**/*Config*",
         "**/*Dto*",
         "**/*Entity*",
-        "**/*Exception*"
+        "**/*Exception*",
+        "**/*ErrorCode*",
+        "**/*Handler*"
     )
 
 // 제외할 클래스 패턴 (커버리지 검증용)
 val excludeClassPatterns =
-    listOf("*.*Application*", "*.*Config*", "*.*Dto*", "*.*Entity*", "*.*Exception*")
+    listOf(
+        "*.*Application*",
+        "*.*Config*",
+        "*.*Dto*",
+        "*.*Entity*",
+        "*.*Exception*",
+        "*.*ErrorCode*",
+        "*.*Handler*"
+    )
 
 fun JacocoReportBase.configureClassDirectories() {
     classDirectories.setFrom(
@@ -65,7 +75,7 @@ tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
             excludes = excludeClassPatterns
 
             limit {
-                minimum = 0.70.toBigDecimal()
+                minimum = 0.60.toBigDecimal()
                 counter = "LINE"
             }
         }

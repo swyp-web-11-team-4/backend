@@ -29,8 +29,8 @@ sonar {
                 "**/*Config.java," +
                 "**/config/**," +
                 "**/dto/**," +
-                "**/entity/**," +
-                "**/exception/**," +
+                "**/domain/**," +
+                "**/presentation/**," +
                 "**/*Constants.java"
         )
 

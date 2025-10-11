@@ -29,6 +29,11 @@ dependencies {
     implementation libs.spring.boot.starter.web
     implementation libs.spring.boot.starter.data.jpa
     implementation libs.spring.boot.openapi.starter.webmvc.ui
+    implementation libs.spring.boot.starter.websocket
+
+    // TODO: 사용자 인증 관련 개발 시 주석 해제 후 개발 진행
+//    implementation libs.spring.boot.starter.security
+//    implementation libs.spring.boot.starter.oauth2.client
 
     // Lombok
     compileOnly libs.lombok

@@ -15,24 +15,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("test")
 class ExampleServiceTest {
 
-    @InjectMocks
-    private ExampleService exampleService;
+  @InjectMocks private ExampleService exampleService;
 
-    @Test
-    @DisplayName("Hello 메시지 생성 테스트")
-    void getHelloMessage() {
-        // given
-        String expectedMessage = "Hello, World!";
+  @Test
+  @DisplayName("Hello 메시지 생성 테스트")
+  void getHelloMessage() {
+    // given
+    String expectedMessage = "Hello, World!";
 
-        // when
-        ExampleResponse response = exampleService
-            .getHelloMessage();
+    // when
+    ExampleResponse response = exampleService.getHelloMessage();
 
-        // then
-        assertThat(response)
-            .isNotNull();
-        assertThat(response
-            .message())
-            .isEqualTo(expectedMessage);
-    }
+    // then
+    assertThat(response).isNotNull();
+    assertThat(response.message()).isEqualTo(expectedMessage);
+  }
 }

@@ -14,36 +14,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("test")
 class ExampleRepositoryTest {
 
-    @Autowired
-    private ExampleRepository exampleRepository;
+  @Autowired private ExampleRepository exampleRepository;
 
-    @Test
-    @DisplayName("Example 엔티티 저장 및 조회 테스트")
-    void saveAndFind() {
-        // given
-        String name = "test-example";
-        Example newExample = new Example(null, name);
+  @Test
+  @DisplayName("Example 엔티티 저장 및 조회 테스트")
+  void saveAndFind() {
+    // given
+    String name = "test-example";
+    Example newExample = new Example(null, name);
 
-        // when
-        Example savedExample = exampleRepository
-            .saveAndFlush(newExample);
-        Example foundExample = exampleRepository
-            .findById(savedExample
-                .getId())
-            .orElse(null);
+    // when
+    Example savedExample = exampleRepository.saveAndFlush(newExample);
+    Example foundExample = exampleRepository.findById(savedExample.getId()).orElse(null);
 
-        // then
-        assertThat(savedExample
-            .getId())
-            .isNotNull();
-        assertThat(foundExample)
-            .isNotNull();
-        assertThat(foundExample
-            .getId())
-            .isEqualTo(savedExample
-                .getId());
-        assertThat(foundExample
-            .getName())
-            .isEqualTo(name);
-    }
+    // then
+    assertThat(savedExample.getId()).isNotNull();
+    assertThat(foundExample).isNotNull();
+    assertThat(foundExample.getId()).isEqualTo(savedExample.getId());
+    assertThat(foundExample.getName()).isEqualTo(name);
+  }
 }

@@ -12,7 +12,6 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.servers.Server;
 
@@ -23,39 +22,27 @@ import io.swagger.v3.oas.models.servers.Server;
     scheme = "bearer",
     bearerFormat = "JWT",
     in = SecuritySchemeIn.HEADER,
-    paramName = "Authorization"
-)
+    paramName = "Authorization")
 public class SwaggerConfig {
-    @Value("${swagger.url:http://localhost:8080}")
-    private String url;
+  @Value("${swagger.url:http://localhost:8080}")
+  private String url;
 
-    @Bean
-    public OpenAPI openAPI() {
-        Contact contact = new Contact()
-            .name("SWYP Web 11기 Team 4")
-            .url("https://github.com/swyp-web-11-team-4");
+  @Bean
+  public OpenAPI openAPI() {
+    Contact contact =
+        new Contact().name("SWYP Web 11기 Team 4").url("https://github.com/swyp-web-11-team-4");
 
-        License license = new License()
-            .name("Apache License 2.0")
-            .url("http://www.apache.org/licenses/LICENSE-2.0.html");
-
-        Info info = new Info()
+    Info info =
+        new Info()
             .title("API Documentation")
             .version("0.0.1")
             .description("SWYP Web 11기 Team 4 Backend API Docs")
-            .contact(contact)
-            .license(license);
+            .contact(contact);
 
-        Server server = new Server()
-            .url(url);
+    Server server = new Server().url(url);
 
-        SecurityRequirement securityRequirement = new SecurityRequirement()
-            .addList("bearerAuth");
+    SecurityRequirement securityRequirement = new SecurityRequirement().addList("bearerAuth");
 
-        return new OpenAPI()
-            .info(info)
-            .servers(List
-                .of(server))
-            .addSecurityItem(securityRequirement);
-    }
+    return new OpenAPI().info(info).servers(List.of(server)).addSecurityItem(securityRequirement);
+  }
 }
