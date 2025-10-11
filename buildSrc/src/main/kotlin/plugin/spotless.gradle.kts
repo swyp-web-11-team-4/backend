@@ -10,8 +10,8 @@ spotless {
         target("src/**/*.java")
         targetExclude("build/**")
 
-        // IntelliJ/Eclipse code style 사용
-        eclipse().configFile(rootProject.file("code-style/intellij-style.xml"))
+        // Google Java Formatter 사용
+        googleJavaFormat()
 
         // Import 순서 정리
         importOrder("java", "javax", "jakarta", "org", "com", "", "\\#")
