@@ -81,7 +81,9 @@ com.swygbro.trip.<domain>/
 
 1. **Use Case Interface Pattern**: 각 도메인의 `application` 패키지에 `*UseCase` 인터페이스를 정의하고, `*Service` 클래스에서 구현합니다. Presentation 계층은 인터페이스에 의존합니다.
 
-2. **Example Package Reference**: 다음의 패키지 구조 예시를 참고하여 새로운 도메인을 구성하세요:
+2. **Base Entity Pattern**: 모든 엔티티는 `com.swygbro.trip.common.domain.entity.BaseEntity`를 상속받아 `createdAt`/`updatedAt` 필드를 자동 관리합니다. JPA Auditing이 활성화되어 있습니다.
+
+3. **Example Package Reference**: 다음의 패키지 구조 예시를 참고하여 새로운 도메인을 구성하세요:
    - `ExampleController` (presentation)
    - `ExampleUseCase` (application interface)
    - `ExampleService` (application implementation)
@@ -97,11 +99,11 @@ com.swygbro.trip.<domain>/
 
 - **`plugin.coverage`**: Jacoco 설정. 커버리지 제외 패턴 및 검증 규칙 포함
   - 전체 프로젝트: 60% 이상 (LINE/BRANCH)
-  - 개별 클래스: 70% 이상 (LINE)
+  - 개별 클래스: 60% 이상 (LINE)
   - 제외 대상: `*Application*`, `*Config*`, `*Dto*`, `*Entity*`, `*Exception*`
 
 - **`plugin.spotless`**: 코드 포맷팅 설정. Java, Kotlin, Gradle, JSON, YAML, Properties, XML 파일 포맷팅 규칙 포함
-  - Java: `code-style/intellij-style.xml` 사용
+  - Java: `code-style/intellij-java-google-style.xml` 사용 (Google Java Style 기반)
   - Import 순서: `java`, `javax`, `jakarta`, `org`, `com`, `""`, `\#`
 
 - **`plugin.sonar`**: SonarQube 연동 설정
@@ -112,8 +114,8 @@ com.swygbro.trip.<domain>/
 
 ## Code Style
 
-- **IntelliJ 설정**: `code-style/intellij-style.xml`을 IDE에 import하여 일관된 스타일 유지
-  - `File` > `Settings` > `Editor` > `Code Style` > `Import Scheme`
+- **IntelliJ 설정**: `code-style/intellij-java-google-style.xml`을 IDE에 import하여 일관된 스타일 유지
+  - `File` > `Settings` > `Editor` > `Code Style` > `Import Scheme` > `IntelliJ IDEA code style XML`
 
 - **Spotless**: CI/CD에서 코드 스타일 검사. 커밋 전 반드시 `./gradlew spotlessApply` 실행
 
@@ -170,3 +172,9 @@ Swagger UI는 `spring-boot-openapi-starter-webmvc-ui`를 통해 자동 설정됩
 - Swagger 설정: `com.swygbro.trip.common.config.SwaggerConfig`
 - 컨트롤러에 `@Tag`, `@Operation` 어노테이션 추가하여 API 문서화
 - 개발 서버에서만 Swagger UI를 통해 api 확인이 가능합니다.
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
