@@ -10,17 +10,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table
 @Getter
-@NoArgsConstructor(
-    access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Example {
 
-    @Id
-    @GeneratedValue(
-        strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(
-        nullable = false)
-    private String name;
+  @Column(nullable = false)
+  private String name;
 }
