@@ -20,29 +20,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 class ExampleControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-    @MockitoBean
-    private ExampleUseCase exampleUseCase;
+  @MockitoBean private ExampleUseCase exampleUseCase;
 
-    @Test
-    @DisplayName("Hello API 테스트")
-    void hello() throws Exception {
-        // given
-        String expectedMessage = "Hello, Test!";
-        given(exampleUseCase
-            .getHelloMessage())
-            .willReturn(new ExampleResponse(expectedMessage));
+  @Test
+  @DisplayName("Hello API 테스트")
+  void hello() throws Exception {
+    // given
+    String expectedMessage = "Hello, Test!";
+    given(exampleUseCase.getHelloMessage()).willReturn(new ExampleResponse(expectedMessage));
 
-        // when & then
-        mockMvc
-            .perform(get("/api/v1/example/hello"))
-            .andExpect(status()
-                .isOk())
-            .andExpect(content()
-                .contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.message")
-                .value(expectedMessage));
-    }
+    // when & then
+    mockMvc
+        .perform(get("/api/v1/example/hello"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(jsonPath("$.message").value(expectedMessage));
+  }
 }
